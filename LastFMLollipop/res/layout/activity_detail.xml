@@ -1,0 +1,67 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MyActivity" >
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp"
+        android:transitionName="actionBar" />
+
+    <!--
+    <RelativeLayout
+        android:id="@+id/holder_view"
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        android:transitionName="actionBar"
+        android:background="?android:colorPrimary">
+        <ImageView android:id="@+id/appIcon"
+                   android:transitionName="appIcon"
+                   android:layout_marginTop="8dp"
+                   android:layout_marginBottom="8dp"
+                   android:layout_width="72dp"
+                   android:layout_height="72dp"/>
+    </RelativeLayout>
+    -->
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolbar"
+        android:layout_centerHorizontal="true"
+        android:clipToPadding="false"
+        android:paddingBottom="@dimen/activity_detail_vertical_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:scrollbars="none" >
+
+        <LinearLayout
+            android:id="@+id/row_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:orientation="vertical" >
+
+            <include
+                android:id="@+id/row_image"
+                layout="@layout/row_imageview" />
+
+            <include
+                android:id="@+id/row_name"
+                layout="@layout/row_detailview" />
+
+            <include
+                android:id="@+id/row_play_count"
+                layout="@layout/row_detailview" />
+
+            <include
+                android:id="@+id/row_mbid"
+                layout="@layout/row_detailview" />
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>
