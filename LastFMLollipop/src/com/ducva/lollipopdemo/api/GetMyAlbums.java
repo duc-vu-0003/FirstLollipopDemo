@@ -7,7 +7,6 @@ import org.apache.http.Header;
 import android.content.Context;
 
 import com.ducva.lollipopdemo.model.BaseModel;
-import com.ducva.lollipopdemo.model.MyAlbum;
 import com.ducva.lollipopdemo.utils.DebugLog;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
@@ -53,7 +52,7 @@ public class GetMyAlbums extends BaseRequest {
 					if(array != null && array.size() > 0){
 						for (int i = 0; i < array.size(); i++) {
 							JsonObject item = array.get(i).getAsJsonObject();
-							MyAlbum myAlbum = new MyAlbum(item);
+							BaseModel myAlbum = new BaseModel(item);
 							lstAlbums.add(myAlbum);
 						}
 					}

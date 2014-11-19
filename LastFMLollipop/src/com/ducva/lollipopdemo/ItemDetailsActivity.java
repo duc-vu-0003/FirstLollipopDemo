@@ -13,8 +13,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.ducva.lollipopdemo.model.BaseModel;
-import com.ducva.lollipopdemo.model.MyAlbum;
-import com.ducva.lollipopdemo.model.MyArtist;
 import com.ducva.lollipopdemo.utils.DebugLog;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
@@ -86,13 +84,7 @@ public class ItemDetailsActivity extends ActionBarActivity {
 		}
 	}
 	
-	public void onEvent(MyArtist data){
-		this.item = data;
-		//initData();
-		initView();
-	}
-	
-	public void onEvent(MyAlbum data){
+	public void onEvent(BaseModel data){
 		this.item = data;
 		//initData();
 		initView();

@@ -7,7 +7,6 @@ import org.apache.http.Header;
 import android.content.Context;
 
 import com.ducva.lollipopdemo.model.BaseModel;
-import com.ducva.lollipopdemo.model.MyArtist;
 import com.ducva.lollipopdemo.utils.DebugLog;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
@@ -52,7 +51,7 @@ public class GetMyArtists extends BaseRequest{
 					if(array != null && array.size() > 0){
 						for (int i = 0; i < array.size(); i++) {
 							JsonObject item = array.get(i).getAsJsonObject();
-							MyArtist myArtist = new MyArtist(item);
+							BaseModel myArtist = new BaseModel(item);
 							lstArtists.add(myArtist);
 						}
 					}
