@@ -48,7 +48,14 @@ public class DemoAdapter extends RecyclerView.Adapter<DemoAdapter.ViewHolder>{
     }
     
     public void addData(BaseModel item, int position){
-    	this.data.add(position,item);
+    	try {
+    		this.data.add(position,item);
+		} catch (IndexOutOfBoundsException e) {
+			// TODO: handle exception
+			position = 0;
+			this.data.add(position,item);
+		}
+    	
     	this.notifyItemInserted(position);
     }
 	
