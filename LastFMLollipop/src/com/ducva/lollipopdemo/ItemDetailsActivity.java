@@ -169,6 +169,7 @@ public class ItemDetailsActivity extends ActionBarActivity {
                 Palette.Swatch lightMuted = palette.getLightMutedSwatch();   
                 
                 toolbar.setBackgroundDrawable(new ColorDrawable(vibrant.getRgb()));
+                toolbar.setTitleTextColor(vibrant.getTitleTextColor());
 			}
 		});
 	}
