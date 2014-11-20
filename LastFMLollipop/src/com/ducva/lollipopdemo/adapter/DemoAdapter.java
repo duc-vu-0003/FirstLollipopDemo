@@ -41,8 +41,9 @@ public class DemoAdapter extends RecyclerView.Adapter<DemoAdapter.ViewHolder>{
     }
 
     public void setData(List<BaseModel> data) {
+    	int sizeOld = this.data.size();
         this.data.addAll(data);
-        this.notifyItemRangeInserted(0, this.data.size() - 1);
+        this.notifyItemRangeInserted(sizeOld, this.data.size() - 1);
         //this.notifyDataSetChanged();
     }
     

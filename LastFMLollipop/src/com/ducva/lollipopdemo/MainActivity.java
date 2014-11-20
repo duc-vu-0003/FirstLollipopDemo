@@ -202,10 +202,11 @@ public class MainActivity extends ActionBarActivity implements LastfmMyAlbumsOnR
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				mAdapter.addData(new BaseModel("Temp Data", "http://userserve-ak.last.fm/serve/_/101457319.png", "Test", 2410), 1);
+				mAdapter.addData(new BaseModel("Temp Data", "http://userserve-ak.last.fm/serve/_/101457319.png", "Test", 2410), firstVisibleItem);
+				mRecyclerView.scrollToPosition(firstVisibleItem);
 			}
 		});
-		fab.attachToRecyclerView(mRecyclerView);
+		//fab.attachToRecyclerView(mRecyclerView);
 
 		initData(0);
 	}
