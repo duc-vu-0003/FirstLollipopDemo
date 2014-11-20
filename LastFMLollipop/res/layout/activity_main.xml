@@ -38,7 +38,7 @@
                 android:paddingTop="@dimen/activity_horizontal_margin" />
         </android.support.v4.widget.SwipeRefreshLayout>
 
-        <com.ducva.recycleviewdemo.customview.FloatingActionButton
+        <com.ducva.lollipopdemo.view.FloatingActionButton
             xmlns:fab="http://schemas.android.com/apk/res-auto"
             android:id="@+id/fab"
             android:layout_width="wrap_content"

@@ -12,7 +12,6 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -22,16 +21,17 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 
+import com.ducva.lollipopdemo.adapter.CustomItemAnimator;
 import com.ducva.lollipopdemo.adapter.DemoAdapter;
 import com.ducva.lollipopdemo.api.GetMyAlbums;
 import com.ducva.lollipopdemo.api.GetMyAlbums.LastfmMyAlbumsOnResult;
 import com.ducva.lollipopdemo.api.GetMyArtists;
 import com.ducva.lollipopdemo.api.GetMyArtists.LastfmMyArtistsOnResult;
 import com.ducva.lollipopdemo.model.BaseModel;
+import com.ducva.lollipopdemo.view.FloatingActionButton;
 import com.nostra13.universalimageloader.cache.disc.naming.HashCodeFileNameGenerator;
 import com.nostra13.universalimageloader.cache.memory.impl.LruMemoryCache;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
@@ -50,6 +50,7 @@ public class MainActivity extends ActionBarActivity implements LastfmMyAlbumsOnR
 	private RelativeLayout layoutAlbum;
 	private RelativeLayout layoutArtist;
 	private ProgressBar progressBar;
+	private FloatingActionButton fab;
 
 	private DemoAdapter mAdapter;
 	private ArrayList<BaseModel> listData;
@@ -127,7 +128,7 @@ public class MainActivity extends ActionBarActivity implements LastfmMyAlbumsOnR
 		mRecyclerView = (RecyclerView) findViewById(R.id.list);
 		mLayoutManager = new LinearLayoutManager(this);
 		mRecyclerView.setLayoutManager(mLayoutManager);
-		mRecyclerView.setItemAnimator(new DefaultItemAnimator());
+		mRecyclerView.setItemAnimator(new CustomItemAnimator());
 
 		mRecyclerView.setOnScrollListener(new OnScrollListener() {
 			@Override
@@ -194,6 +195,17 @@ public class MainActivity extends ActionBarActivity implements LastfmMyAlbumsOnR
 		});
 
 		progressBar = (ProgressBar) findViewById(R.id.progressBar1);
+		
+		fab = (FloatingActionButton) findViewById(R.id.fab);
+		fab.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				mAdapter.addData(new BaseModel("Temp Data", "http://userserve-ak.last.fm/serve/_/101457319.png", "Test", 2410), 1);
+			}
+		});
+		fab.attachToRecyclerView(mRecyclerView);
 
 		initData(0);
 	}

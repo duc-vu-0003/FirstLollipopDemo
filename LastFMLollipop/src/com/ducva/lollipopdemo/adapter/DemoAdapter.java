@@ -31,7 +31,7 @@ public class DemoAdapter extends RecyclerView.Adapter<DemoAdapter.ViewHolder>{
 	
 	public void clearData() {
 		this.data.clear();
-        //int size = this.data.size();
+//        int size = this.data.size();
 //        if (size > 0) {
 //            this.data.clear();
 //            this.notifyItemRangeRemoved(0, size - 1);
@@ -42,8 +42,13 @@ public class DemoAdapter extends RecyclerView.Adapter<DemoAdapter.ViewHolder>{
 
     public void setData(List<BaseModel> data) {
         this.data.addAll(data);
-        //this.notifyItemInserted(0);
-        this.notifyDataSetChanged();
+        this.notifyItemRangeInserted(0, this.data.size() - 1);
+        //this.notifyDataSetChanged();
+    }
+    
+    public void addData(BaseModel item, int position){
+    	this.data.add(position,item);
+    	this.notifyItemInserted(position);
     }
 	
 	@Override
