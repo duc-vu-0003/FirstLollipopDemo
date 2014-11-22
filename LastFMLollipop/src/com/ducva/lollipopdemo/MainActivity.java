@@ -31,6 +31,7 @@ import com.ducva.lollipopdemo.api.GetMyAlbums.LastfmMyAlbumsOnResult;
 import com.ducva.lollipopdemo.api.GetMyArtists;
 import com.ducva.lollipopdemo.api.GetMyArtists.LastfmMyArtistsOnResult;
 import com.ducva.lollipopdemo.model.BaseModel;
+import com.ducva.lollipopdemo.utils.DebugLog;
 import com.ducva.lollipopdemo.view.FloatingActionButton;
 import com.nostra13.universalimageloader.cache.disc.naming.HashCodeFileNameGenerator;
 import com.nostra13.universalimageloader.cache.memory.impl.LruMemoryCache;

@@ -161,15 +161,20 @@ public class ItemDetailsActivity extends ActionBarActivity {
 			@Override
 			public void onGenerated(Palette palette) {
 				// TODO Auto-generated method stub
-                Palette.Swatch vibrant = palette.getVibrantSwatch();   
-                Palette.Swatch darkVibrant = palette.getDarkVibrantSwatch();   
-                Palette.Swatch lightVibrant = palette.getLightVibrantSwatch();  
-                Palette.Swatch muted = palette.getMutedSwatch();   
-                Palette.Swatch darkMuted = palette.getDarkMutedSwatch();   
-                Palette.Swatch lightMuted = palette.getLightMutedSwatch();   
-                
-                toolbar.setBackgroundDrawable(new ColorDrawable(vibrant.getRgb()));
-                toolbar.setTitleTextColor(vibrant.getTitleTextColor());
+				try {
+					Palette.Swatch vibrant = palette.getVibrantSwatch();   
+	                Palette.Swatch darkVibrant = palette.getDarkVibrantSwatch();   
+	                Palette.Swatch lightVibrant = palette.getLightVibrantSwatch();  
+	                Palette.Swatch muted = palette.getMutedSwatch();   
+	                Palette.Swatch darkMuted = palette.getDarkMutedSwatch();   
+	                Palette.Swatch lightMuted = palette.getLightMutedSwatch();   
+	                
+	                toolbar.setBackgroundDrawable(new ColorDrawable(vibrant.getRgb()));
+	                toolbar.setTitleTextColor(vibrant.getTitleTextColor());
+				} catch (Exception e) {
+					// TODO: handle exception
+				}
+				
 			}
 		});
 	}

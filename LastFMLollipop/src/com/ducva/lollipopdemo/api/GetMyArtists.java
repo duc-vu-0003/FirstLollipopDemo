@@ -45,20 +45,29 @@ public class GetMyArtists extends BaseRequest{
 				JsonObject response = (JsonObject) parser.parse(result);
 
 				if (response.has(LastfmConstant.RESPONSE_KEY_FOR_ARTISTS)) {
-					JsonObject obj = response.get(LastfmConstant.RESPONSE_KEY_FOR_ARTISTS).getAsJsonObject();
-					JsonArray array = obj.get(LastfmConstant.RESPONSE_KEY_FOR_ARTIST).getAsJsonArray();
 					
-					if(array != null && array.size() > 0){
-						for (int i = 0; i < array.size(); i++) {
-							JsonObject item = array.get(i).getAsJsonObject();
-							BaseModel myArtist = new BaseModel(item);
-							lstArtists.add(myArtist);
+					try {
+						JsonObject obj = response.get(LastfmConstant.RESPONSE_KEY_FOR_ARTISTS).getAsJsonObject();
+						JsonArray array = obj.get(LastfmConstant.RESPONSE_KEY_FOR_ARTIST).getAsJsonArray();
+						
+						if(array != null && array.size() > 0){
+							for (int i = 0; i < array.size(); i++) {
+								JsonObject item = array.get(i).getAsJsonObject();
+								BaseModel myArtist = new BaseModel(item);
+								lstArtists.add(myArtist);
+							}
+						}
+						
+						if (lastfmMyArtistsOnResult != null) {
+							lastfmMyArtistsOnResult.onLastfmMyArtistsResult(true, lstArtists);
+						}
+					} catch (Exception e) {
+						if (lastfmMyArtistsOnResult != null) {
+							lastfmMyArtistsOnResult.onLastfmMyArtistsResult(true, new ArrayList<BaseModel>());
 						}
 					}
 					
-					if (lastfmMyArtistsOnResult != null) {
-						lastfmMyArtistsOnResult.onLastfmMyArtistsResult(true, lstArtists);
-					}
+					
 				} else {
 					
 					if (lastfmMyArtistsOnResult != null) {
